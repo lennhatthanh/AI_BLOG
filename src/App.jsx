@@ -1,16 +1,19 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import Header from "./components/Header";
-import Editor from "./components/Editor";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import EditorPage from "./page/EditorPage";
+import Layout from "./layout";
+import HomePage from "./page/HomePage";
+import HistoryPage from "./page/HistoryPage";
 function App() {
-    const [count, setCount] = useState(0);
-
     return (
-        <>
-            <Header />
-            <Editor />
-        </>
+        <BrowserRouter >
+            <Routes>
+                <Route path="/" element={<Layout />}>
+                    <Route index path="/editor" element={<EditorPage />}/>
+                    <Route index path="/history" element={<HistoryPage />}/>
+                    <Route index path="" element={<HomePage />}/>
+                </Route> 
+            </Routes>
+        </BrowserRouter>
     );
 }
 

@@ -1,6 +1,15 @@
+import { useEffect, useState } from "react";
+import { Button } from "../ui/button";
+import { Link } from "react-router-dom";
+
 function Header() {
+    const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "light");
+    useEffect(() => {
+        theme === "dark" ? document.body.classList.add("dark") : document.body.classList.remove("dark");
+        localStorage.setItem("theme", theme);
+    }, [theme]);
     return (
-        <div className="border-b border-[#e5e5e5]">
+        <div className="border-b border-border">
             <div className="container mx-auto px-4 h-16 flex items-center justify-between">
                 <a href="" className="flex items-center space-x-2">
                     <svg
@@ -23,13 +32,16 @@ function Header() {
                     <span class="text-2xl font-bold text-primary opacity-0 sm:opacity-100">AI Blog Generator</span>
                 </a>
                 <div className="flex items-center gap-2">
-                    <a href="" className="outline-none font-medium text-sm px-3 hover:underline">
+                    <Link to="/editor" href="" className="outline-none font-medium text-sm px-3 hover:underline">
                         Editor
-                    </a>
-                    <a href="" className="outline-none font-medium text-sm px-3 hover:underline">
+                    </Link>
+                    <Link to="/history" href="" className="outline-none font-medium text-sm px-3 hover:underline">
                         History
-                    </a>
-                    <button className="px-3 py-2 rounded-lg bg-[#171717] font-medium text-sm">
+                    </Link>
+                    <Button
+                        onClick={() => (theme === "light" ? setTheme("dark") : setTheme("light"))}
+                        // className="px-3 py-2 rounded-lg bg-primary text-primary-foreground font-medium text-sm"
+                    >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
@@ -40,7 +52,7 @@ function Header() {
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
-                            class="lucide lucide-sun h-4 w-4 text-white"
+                            class="lucide lucide-sun h-4 w-4"
                         >
                             <circle cx="12" cy="12" r="5"></circle>
                             <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -52,7 +64,7 @@ function Header() {
                             <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
                             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                         </svg>
-                    </button>
+                    </Button>
                 </div>
             </div>
         </div>
