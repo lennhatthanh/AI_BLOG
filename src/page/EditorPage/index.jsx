@@ -18,9 +18,8 @@ Viết một **bài blog Markdown** về chủ đề **${valueInput}**.
 Yêu cầu:
 - Viết bằng **Markdown thuần** (không HTML, không đặt trong \`\`\`markdown\`\`\`).
 - Có **cấu trúc rõ ràng với các tiêu đề #, ##, ###** thể hiện cấp độ nội dung.
-- Giữa các phần phải có **dòng trống** để tạo khoảng cách dễ đọc.
+- Giữa các phần phải có xuống dòng để tạo khoảng cách dễ đọc.
 - Dùng **in đậm**, *in nghiêng* để nhấn mạnh các ý quan trọng.
-- Có thể thêm **emoji** ở tiêu đề để bài viết sinh động hơn.
 - Giọng văn **tự nhiên, gần gũi, truyền cảm xúc** như viết blog cá nhân.
 - Độ dài khoảng **700–1000 từ**.
 
@@ -41,7 +40,7 @@ Yêu cầu:
 
 ### 📝 Phong cách gợi ý:
 - Viết tự nhiên như đang kể chuyện.
-- Sử dụng **dấu gạch ngang (---)** để chia các phần nhẹ nhàng.
+- Sử dụng xuống dòng để chia các phần nhẹ nhàng.
 - Có thể xen kẽ *trích dẫn*, câu hỏi tu từ hoặc lời khuyên ngắn.
 - Mỗi phần nên cách nhau **ít nhất một dòng trống**.
 
@@ -50,12 +49,13 @@ Yêu cầu:
 ⚠️ **Lưu ý cuối cùng:**  
 Không được bao bọc bài viết trong khối code hoặc \`\`\`markdown\`\`\`.  
 Kết quả phải là **Markdown thực tế** hiển thị đúng tiêu đề, cỡ chữ và định dạng.
+Thêm khoảng cách giữa các phần để dễ đọc hơn
 `;
 
         const ip = await useCheckIP();
         if (blogs.filter((item) => item.ip == ip.ip).length >= 5) {
             toast.error("Bạn đã vượt quá 5 lần trong ngày.");
-            setLoading(false)
+            setLoading(false);
             return;
         }
         const genAI = new GoogleGenerativeAI(import.meta.env.VITE_API_KEY);
