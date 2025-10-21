@@ -11,7 +11,7 @@ function Header() {
     return (
         <div className="border-b border-border">
             <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-                <a href="" className="flex items-center space-x-2">
+                <Link to="/" href="" className="flex items-center space-x-2">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
@@ -30,7 +30,7 @@ function Header() {
                         <circle cx="11" cy="11" r="2"></circle>
                     </svg>
                     <span class="text-2xl font-bold text-primary opacity-0 sm:opacity-100">AI Blog Generator</span>
-                </a>
+                </Link>
                 <div className="flex items-center gap-2">
                     <Link to="/editor" href="" className="outline-none font-medium text-sm px-3 hover:underline">
                         Editor
