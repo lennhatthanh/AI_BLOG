@@ -54,7 +54,7 @@ Kết quả phải là **Markdown thực tế** hiển thị đúng tiêu đề,
 
         const ip = await useCheckIP();
         if (blogs.filter((item) => item.ip == ip.ip).length >= 5) {
-            toast.error("Bạn đã vượt quá 5 lần trong ngày");
+            toast.error("Bạn đã vượt quá 5 lần trong ngày.");
             setLoading(false)
             return;
         }
